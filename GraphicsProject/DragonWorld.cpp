@@ -9,17 +9,23 @@ void DragonWorld::onStart()
 	setCamera(m_camera);
 	add(m_camera);
 
-	//Light
-	m_light = new Light({ -1.0f, 1.0f, 1.0f},
-		{ 1.0f, 1.0f, 1.0f, 1.0f },
+	m_light = new Light(
+		{ 1.0f, 1.0f, 1.0f },
+		{ 0.5f, 0.5f, 0.5f, 1.0f },
 		{ 1.0f, 1.0f, 1.0f, 1.0f },
 		{ 1.0f, 1.0f, 1.0f, 1.0f });
+
 	add(m_light);
 
 	//Dragon
 	m_dragon = new OBJMesh();
+	m_dragon->getTransform();
 	m_dragon->load("Dragon.obj");
+	m_dragon->getTransform()->setScale(0.1f, 0.1f, 0.1f);
 	add(m_dragon);
+
+
+
 }
 
 
@@ -29,4 +35,9 @@ void DragonWorld::onEnd()
 	destroy(m_camera);
 	destroy(m_light);
 	destroy(m_dragon);
+
+}
+
+void DragonWorld::onDraw()
+{
 }
