@@ -3,6 +3,7 @@
 in vec4 fPosition;
 in vec4 fNormal;
 in vec4 fColor;
+in vec2 fTexCoord;
 
 uniform vec3 kAmbient;
 uniform vec3 kDiffuse;
@@ -13,6 +14,8 @@ uniform vec3 iDirection;
 uniform vec3 iAmbient;
 uniform vec3 iDiffuse;
 uniform vec3 iSpecular;
+
+uniform sampler2D fTexture;
 
 uniform vec3 cameraPosition;
 
@@ -38,5 +41,12 @@ void main() {
 	specularTerm = pow(specularTerm, kSpecularPower);
 	vec3 specularColor = (fColor.xyz + kSpecular) * iSpecular * specularTerm;
 
-	pColor = vec4(ambientColor + diffuseColor + specularColor, 1.0f);
+	pColor = vec4(ambientColor + diffuseColor + specularColor, 1.0f) * texture(fTexture, fTexCoord);
+
+	// Snow 
+	if (kNormal.y > 0.5f) {
+		vec4 red = vec4(0.8f, 0.8f, 0.8f, 0.3f);
+		pColor = red;
+	}
+
 }
