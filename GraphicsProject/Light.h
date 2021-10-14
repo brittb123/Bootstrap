@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "glm/vec3.hpp"
 #include "glm/vec4.hpp"
+#include <string>
 
 class Light : public Entity
 {
@@ -29,5 +30,6 @@ private:
 	glm::vec4 m_ambient = glm::vec4(0.0f);
 	glm::vec4 m_diffuse = glm::vec4(0.0f);
 	glm::vec4 m_specular = glm::vec4(0.0f);
+	int m_index;
 };
 

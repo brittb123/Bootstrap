@@ -21,12 +21,20 @@ void DragonWorld::onStart()
 	add(m_camera);
 
 	m_light = new Light(
-		{ 1.0f, 1.0f, 1.0f },
-		{ 0.5f, 0.5f, 0.5f, 1.0f },
+		{ -1.0f, 0.0f, 1.0f },
+		{ 0.1f, 0.5f, 0.5f, 1.0f },
 		{ 1.0f, 1.0f, 1.0f, 1.0f },
 		{ 1.0f, 1.0f, 1.0f, 1.0f });
 
 	add(m_light);
+
+	//m_leftLight = new Light(
+	//	{ 1.0f, 0.0f, 0.0f },
+	//	{ 0.5f, 0.4f, 0.6f, 1.0f },
+	//	{ 1.0f, 1.0f, 1.0f, 1.0f },
+	//	{ 1.0f, 1.0f, 1.0f, 1.0f}
+	//);
+	//add(m_leftLight);
 
 	//Dragon
 	m_dragon = new OBJMesh();
@@ -50,6 +58,7 @@ void DragonWorld::onEnd()
 
 void DragonWorld::onDraw()
 {
+   
 	int program = -1;
 	glGetIntegerv(GL_CURRENT_PROGRAM, &program);
 	if (program == -1)

@@ -22,6 +22,9 @@ uniform vec3 cameraPosition;
 out vec4 pColor;
 
 void main() {
+
+	
+
 	vec3 kNormal = normalize(fNormal.xyz);
 	vec3 iNormal = normalize(iDirection);
 
