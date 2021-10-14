@@ -4,6 +4,7 @@
 #include "Light.h"
 #include "OBJMesh.h"
 #include "Cube.h"
+#include "Quad.h"
 
 class DragonWorld : public World
 {
@@ -18,5 +19,6 @@ private:
 	Light* m_light = nullptr;
 	OBJMesh* m_dragon = nullptr;
 	Cube* m_cube;
+	Quad m_quad = Quad(glm::vec4(0.6f, 0.4f, 0.7f, 1.0f));
 };
 

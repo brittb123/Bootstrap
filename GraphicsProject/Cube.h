@@ -7,7 +7,7 @@ public:
 	Cube() : Mesh() {}
 	~Cube() {}
 
-	Vertex* generateVertices(unsigned int& vertexCount, unsigned int& triCount) override;
+	Vertex* generateVertices(unsigned int& vertexCount, unsigned int& triCount);
 
 	glm::vec4 getColor() { return m_color; }
 	void setColor(glm::vec4 color) { m_color = color; }

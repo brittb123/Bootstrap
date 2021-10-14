@@ -17,6 +17,15 @@ Quad::Vertex* Quad::generateVertices(unsigned int& vertexCount)
 	vertices[1].position = { 0.5f, 0.0f, 0.5f, 1.0f };
 	vertices[2].position = { -0.5f, 0.0f, -0.5f, 1.0f };
 	vertices[3].position = { 0.5f, 0.0f, -0.5f, 1.0f };
+
+	vertices[0].texCoord = { 0.0f, 1.0f };
+	vertices[1].texCoord = { 1.0f, 1.0f };
+	vertices[2].texCoord = { 0.0f, 0.0f };
+
+	vertices[3].texCoord = { 1.0f, .0f };
+	vertices[4].texCoord = { 1.0f, 1.0f };
+	vertices[5].texCoord = { 0.0f, 0.0f };
+
 	//vertices[4].position = { 0.5f, 0.0f, 0.5f, 1.0f };
 	//vertices[5].position = { -0.5f, 0.0f, -0.5f, 1.0f };
 

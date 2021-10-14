@@ -43,10 +43,10 @@ void main() {
 
 	pColor = vec4(ambientColor + diffuseColor + specularColor, 1.0f) * texture(fTexture, fTexCoord);
 
-	// Snow 
-	if (kNormal.y > 0.5f) {
-		vec4 red = vec4(0.8f, 0.8f, 0.8f, 0.3f);
-		pColor = red;
-	}
+	//// Snow 
+	//if (kNormal.y > 0.5f) {
+	//	vec4 red = vec4(0.8f, 0.8f, 0.8f, 0.3f);
+	//	pColor = red;
+	//}
 
 }
