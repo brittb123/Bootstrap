@@ -34,6 +34,7 @@ void main() {
 	vec3 iNormal1 = normalize(iDirection1);
 
 	// First Light
+
 	//Calculate ambient color
 	vec3 ambientColor0 = (fColor.xyz + kAmbient) * iAmbient0;
 
@@ -49,9 +50,12 @@ void main() {
 	specularTerm0 = max(0.0f, specularTerm0);
 	specularTerm0 = pow(specularTerm0, kSpecularPower);
 	vec3 specularColor0 = (fColor.xyz + kSpecular) * iSpecular0 * specularTerm0;
+
 	vec4 color0 = vec4(ambientColor0 + diffuseColor0 + specularColor0, 1.0f);
 
+
 	// Second Light 
+
 	//Calculate ambient color
 	vec3 ambientColor1 = (fColor.xyz + kAmbient) * iAmbient1;
 
@@ -68,14 +72,8 @@ void main() {
 	specularTerm1 = pow(specularTerm1, kSpecularPower);
 	vec3 specularColor1 = (fColor.xyz + kSpecular) * iSpecular1 * specularTerm1;
 
-	vec4 light2 = vec4(ambientColor1 + diffuseColor1 + specularColor1, 1.0f);
+	vec4 color1 = vec4(ambientColor1 + diffuseColor1 + specularColor1, 1.0f);
 
-	pColor = (color0 + light2)* texture(fTexture, fTexCoord);
-
-	//// Snow 
-	//if (kNormal.y > 0.5f) {
-	//	vec4 red = vec4(0.8f, 0.8f, 0.8f, 0.3f);
-	//	pColor = red;
-	//}
+	pColor = (color0 + color1) * texture(fTexture, fTexCoord);
 
 }

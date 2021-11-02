@@ -20,20 +20,25 @@ void DragonWorld::onStart()
 	setCamera(m_camera);
 	add(m_camera);
 
-	m_light = new Light(
-		{ -1.0f, 0.0f, -1.0f },
+	m_light = new Light
+	(
+		{ 1.0f, 0.0f, 1.0f },
 		{ 0.5f, 0.5f, 0.5f, 1.0f },
-		{ 1.0f, 1.0f, 1.0f, 1.0f },
-		{ 1.0f, 1.0f, 1.0f, 1.0f });
+		{ 0.6f, 0.0f, 0.8f, 1.0f },
+		{ 1.0f, 1.0f, 1.0f, 1.0f }
+	);
+
 	m_light->setIndex(0);
 	add(m_light);
 
-	m_leftLight = new Light(
-		{ 1.0f, 0.0f, 1.0f },
-		{ 0.5f, 0.0f, 0.0f, 1.0f },
-		{ 1.0f, 1.0f, 1.0f, 1.0f },
-		{ 1.0f, 1.0f, 1.0f, 1.0f}
+	m_leftLight = new Light
+	(
+		{ -1.0f, 0.0f, -1.0f },
+		{ 0.5f, 0.5f, 0.5f, 1.0f },
+		{ 1.8f, 0.0f, 0.1f, 1.0f },
+		{ 1.0f, 0.0f, 0.0f, 1.0f}
 	);
+
 	m_leftLight->setIndex(1);
 	add(m_leftLight);
 
@@ -45,16 +50,6 @@ void DragonWorld::onStart()
 	m_dragon->getTransform()->setPosition(glm::vec3(0.0f, -2.0f, 0.0f));
 	m_dragon->getTransform()->setScale(0.1f, 0.1f, 0.1f);
 	add(m_dragon);
-
-}
-
-
-
-void DragonWorld::onEnd()
-{
-	destroy(m_camera);
-	destroy(m_light);
-	destroy(m_dragon);
 
 }
 
@@ -75,3 +70,13 @@ void DragonWorld::onDraw()
 
 	m_quad.draw();
 }
+
+void DragonWorld::onEnd()
+{
+	destroy(m_camera);
+	destroy(m_light);
+	destroy(m_dragon);
+
+}
+
+

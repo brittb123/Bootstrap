@@ -17,9 +17,7 @@ void Light::onDraw()
 	}
 	else if (m_index > 1)
 	{
-	
 		printf("Passed the index border");
-		
 	}
 
 	int program = -1;
@@ -48,17 +46,21 @@ void Light::onDraw()
 	lightSpecular = glGetUniformLocation(program, str.c_str());
 
 
-	if (lightDirection >= 0) {
+	if (lightDirection >= 0) 
+	{
 		glm::vec3 direction = getDirection();
 		glUniform3f(lightDirection, direction.x, direction.y, direction.z);
 	}
-	if (lightAmbient >= 0) {
+	if (lightAmbient >= 0)
+	{
 		glUniform3f(lightAmbient, m_ambient.x, m_ambient.y, m_ambient.z);
 	}
-	if (lightDiffuse >= 0) {
+	if (lightDiffuse >= 0) 
+	{
 		glUniform3f(lightDiffuse, m_diffuse.x, m_diffuse.y, m_diffuse.z);
 	}
-	if (lightSpecular >= 0) {
+	if (lightSpecular >= 0) 
+	{
 		glUniform3f(lightSpecular, m_specular.x, m_specular.y, m_specular.z);
 	}
 }
