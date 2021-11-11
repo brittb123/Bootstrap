@@ -1,17 +1,16 @@
 #include "World.h"
-#include "glm/ext.hpp"
-
-World::World(int width, int height)
-{
-	m_width = width;
-	m_height = height;
-}
 
 void World::start()
 {
-	//Initialize the quad
-	m_quad.setTransform(glm::mat4(10.0f));
-	m_quad.start();
+	onStart();
+	m_started = true;
+}
+
+void World::update(float deltaTime)
+{
+	if (!m_started) {
+		start();
+	}
 
 	//Create camera transforms
 	//m_camera.setTransform(glm::lookAt(
@@ -29,21 +28,60 @@ void World::start()
 		m_camera.getFarClip()
 	);
 }
+	onUpdate(deltaTime);
 
-void World::update()
-{
+	//Update the list of entities
+	for (Entity* entity : addList) {
+		entities.push_back(entity);
+	}
+	addList.clear();
+	entities.unique();
+	for (Entity* entity : removeList) {
+		entities.remove(entity);
+	}
+	removeList.clear();
+	for (Entity* entity : destroyList) {
+		entities.remove(entity);
+		delete entity;
+	}
+	destroyList.clear();
+
+	//Update the entities
+	for (Entity* entity : entities) {
+		entity->update(deltaTime);
+	}
 }
 
 void World::draw()
 {
-	m_quad.draw();
+	onDraw();
+
+	for (Entity* entity : entities) {
+		entity->draw();
+	}
 }
 
 void World::end()
 {
+	onEnd();
 }
 
-glm::mat4 World::getProjectionViewModel()
+void World::add(Entity* entity)
 {
 	return m_projectionMatrix * m_camera.getViewMatrix() * m_quad.getTransform();
+	removeList.remove(entity);
+	addList.push_back(entity);
+}
+
+void World::remove(Entity* entity)
+{
+	addList.remove(entity);
+	removeList.push_back(entity);
+}
+
+void World::destroy(Entity* entity)
+{
+	addList.remove(entity);
+	removeList.remove(entity);
+	destroyList.push_back(entity);
 }
