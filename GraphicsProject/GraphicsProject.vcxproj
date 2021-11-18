@@ -188,10 +188,16 @@
   <ItemGroup>
     <None Include="Buddha.mtl" />
     <None Include="Bunny.mtl" />
-    <None Include="Dragon.mtl" />
-    <None Include="fragment.shader" />
+    <CopyFileToFolders Include="Dragon.mtl">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="fragment.shader">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
     <None Include="Lucy.mtl" />
-    <None Include="vertex.shader" />
+    <CopyFileToFolders Include="vertex.shader">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Buddha.obj">
@@ -208,12 +214,12 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="earth_cloud.jpg" />
-    <Image Include="earth_cloud_trans.jpg" />
-    <Image Include="earth_diffuse.jpg" />
-    <Image Include="earth_lights.jpg" />
-    <Image Include="earth_normal.jpg" />
-    <Image Include="earth_specular.jpg" />
+    <CopyFileToFolders Include="earth_cloud.jpg" />
+    <CopyFileToFolders Include="earth_cloud_trans.jpg" />
+    <CopyFileToFolders Include="earth_diffuse.jpg" />
+    <CopyFileToFolders Include="earth_lights.jpg" />
+    <CopyFileToFolders Include="earth_normal.jpg" />
+    <CopyFileToFolders Include="earth_specular.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

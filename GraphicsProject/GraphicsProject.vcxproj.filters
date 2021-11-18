@@ -115,15 +115,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fragment.shader">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="vertex.shader">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Dragon.mtl">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Lucy.mtl">
       <Filter>Resource Files</Filter>
     </None>
@@ -147,25 +138,32 @@
     <CopyFileToFolders Include="Dragon.obj">
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="earth_specular.jpg">
+    <CopyFileToFolders Include="earth_diffuse.jpg">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="earth_cloud.jpg">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="earth_cloud.jpg">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="earth_cloud_trans.jpg">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="earth_cloud_trans.jpg">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="earth_diffuse.jpg">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="earth_lights.jpg">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="earth_lights.jpg">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="earth_normal.jpg">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="earth_normal.jpg">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="earth_specular.jpg">
       <Filter>Resource Files</Filter>
-    </Image>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="fragment.shader">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="vertex.shader">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="Dragon.mtl">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
